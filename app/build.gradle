@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "eamv.dmu17he.lancrewappprototype"
+        applicationId "eamv.dmu17he.pushtest"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
@@ -25,4 +25,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile 'com.google.android.gms:play-services-gcm:11.8.0'
+    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+}
+
+repositories {
+    maven {
+        url "http://dl.bintray.com/microsoftazuremobile/SDK"
+    }
 }

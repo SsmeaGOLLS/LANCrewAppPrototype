@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eamv.dmu17he.lancrewappprototype.MainActivity">
+    tools:context="eamv.dmu17he.pushtest.MainActivity">
+    android:id="@+id/text_hello"
 
     <TextView
         android:layout_width="wrap_content"
