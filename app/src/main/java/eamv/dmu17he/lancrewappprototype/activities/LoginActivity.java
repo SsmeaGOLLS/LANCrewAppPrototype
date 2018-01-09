@@ -12,6 +12,16 @@ import android.view.View;
 
 import eamv.dmu17he.lancrewappprototype.R;
 import eamv.dmu17he.lancrewappprototype.helper.InputValidation;
+import android.util.Log;
+import android.view.View;
+
+import java.util.List;
+
+import eamv.dmu17he.lancrewappprototype.R;
+import eamv.dmu17he.lancrewappprototype.helper.InputValidation;
+import eamv.dmu17he.lancrewappprototype.model.User;
+import eamv.dmu17he.lancrewappprototype.sql.userDAO;
+import eamv.dmu17he.lancrewappprototype.sql.userDatabase;
 //import eamv.dmu17he.lancrewappprototype.sql.DBHelper;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {

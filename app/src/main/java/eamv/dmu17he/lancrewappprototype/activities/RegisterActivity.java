@@ -12,6 +12,15 @@ import android.view.View;
 import eamv.dmu17he.lancrewappprototype.R;
 import eamv.dmu17he.lancrewappprototype.helper.InputValidation;
 import eamv.dmu17he.lancrewappprototype.model.User;
+import android.util.Log;
+import android.view.View;
+
+import java.util.List;
+
+import eamv.dmu17he.lancrewappprototype.R;
+import eamv.dmu17he.lancrewappprototype.helper.InputValidation;
+import eamv.dmu17he.lancrewappprototype.model.User;
+import eamv.dmu17he.lancrewappprototype.sql.userDatabase;
 
 /**
  * Created by Bruger on 08/01/2018.
@@ -89,6 +98,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void postDataToDAO(){
         //kald @insert metode til at oprette bruger
+<<<<<<< HEAD
+=======
+>>>>>>> TangsPillerier
     }
 
     private void emptyInputEditText(){
