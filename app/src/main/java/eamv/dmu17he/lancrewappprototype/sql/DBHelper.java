@@ -1,4 +1,4 @@
-package eamv.dmu17he.lancrewappprototype.sql;
+/*package eamv.dmu17he.lancrewappprototype.sql;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -10,7 +10,7 @@ import eamv.dmu17he.lancrewappprototype.model.User;
 /**
  * Created by Bruger on 08/01/2018.
  */
-
+/*
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
@@ -66,3 +66,4 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 }
+*/

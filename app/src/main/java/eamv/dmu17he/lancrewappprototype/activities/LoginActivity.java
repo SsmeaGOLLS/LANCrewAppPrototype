@@ -12,7 +12,7 @@ import android.view.View;
 
 import eamv.dmu17he.lancrewappprototype.R;
 import eamv.dmu17he.lancrewappprototype.helper.InputValidation;
-import eamv.dmu17he.lancrewappprototype.sql.DBHelper;
+//import eamv.dmu17he.lancrewappprototype.sql.DBHelper;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private final AppCompatActivity activity = LoginActivity.this;
@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private AppCompatTextView textViewLinkRegister;
 
     private InputValidation inputValidation;
-    private DBHelper dbHelper;
+   // private DBHelper dbHelper;
 
 
 
