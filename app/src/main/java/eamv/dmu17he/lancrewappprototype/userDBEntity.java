@@ -15,5 +15,8 @@ public class userDBEntity
     public int userID;
 
     @ColumnInfo (name="userName")
-    public String exerciseName;
+    public String userName;
+
+    @ColumnInfo (name="userPassword")
+    public String userPassword;
 }

@@ -18,6 +18,9 @@ public interface userDAO
     @Query("SELECT * FROM userDBEntity")
     List<userDBEntity> getAll();
 
+    @Query("SELECT * FROM userDBEntity WHERE userName LIKE :name")
+    userDBEntity getUserFromUserName(String name);
+
     @Insert
     void insertAll(List<userDBEntity> users);
 

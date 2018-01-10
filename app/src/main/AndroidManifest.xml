@@ -16,7 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuScreenActivity"></activity>
+        <activity android:name=".MenuScreenActivity" />
+        <activity android:name=".dailyPlanStartActivity" />
+        <activity android:name=".DutyRosterStartActivity" />
+        <activity android:name=".MessagesStartActivity" />
+        <activity android:name=".WakeUpScheduleStartActivity"></activity>
     </application>
 
 </manifest>
