@@ -1,6 +1,7 @@
 package eamv.dmu17he.lancrewappprototype.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.NestedScrollView;
@@ -135,6 +136,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             String log = "id: " + uDBE.getId() + ", User Name: " + uDBE.getUsername() + ", Password: " + uDBE.getPassword();
             Log.d("User: :", log);
 
+
+            // Snack Bar to show success message that record saved successfully
+            Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
+            emptyInputEditText();
         }
 
         }

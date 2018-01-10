@@ -1,6 +1,8 @@
 package eamv.dmu17he.lancrewappprototype.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.NestedScrollView;
@@ -35,7 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private AppCompatTextView textViewLinkRegister;
 
     private InputValidation inputValidation;
-   // private DBHelper dbHelper;
+    private User user;
 
 
 
@@ -68,7 +70,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initObjects(){
-        //DAO SHIT HER!
+        inputValidation = new InputValidation(activity);
     }
 
     @Override
@@ -86,30 +88,35 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void verifyFromDAO() {
-       /*
-        String userName = textInputEditTextUsername.getText().toString();
-        String password = textInputEditTextPassword.getText().toString();
-
-        Log.d("FIND MIG", textInputEditTextUsername.getText().toString());
-        Log.d("OGSÅ MIG", textInputEditTextPassword.getText().toString());
-
-        User user = new User();
-        user.setUsername(userName);
-        user.setPassword(password);
-
-
+        if (!inputValidation.isInputEditTextFilled(textInputEditTextUsername, textInputLayoutUsername, getString(R.string.error_message_username))) {
+            return;
+        }
+        if (!inputValidation.isInputEditTextUsername(textInputEditTextUsername, textInputLayoutUsername, getString(R.string.error_message_username), this)) {
+            return;
+        }
+        if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_username))) {
+            return;
+        }
         userDatabase db = userDatabase.getDatabase(this);
-        db.uDAO().insertUser(user);
+        String username = textInputEditTextUsername.getText().toString();
+        String password = textInputEditTextPassword.getText().toString();
+        User theUser = db.uDAO().findUserFromName(textInputEditTextUsername.getText().toString());
 
 
-        List<User> users = db.uDAO().getAll();
-        for (User uDBE : users) {
-            String log = "id: " + uDBE.getId() + ", User Name: " + uDBE.getUsername() + ", Password: " + uDBE.getPassword();
-            Log.d("User: :", log);
+
+        if (!(theUser==null) & db.uDAO().findUserFromName(textInputEditTextUsername.getText().toString()).equals(textInputEditTextUsername.getText().toString())){
+            Intent accountsIntent = new Intent(activity, UsersActivity.class);
+            accountsIntent.putExtra("USERNAME", textInputEditTextUsername.getText().toString().trim());
+            emptyInputEditText();
+            startActivity(accountsIntent);
 
         }
-        */
-    }
+        else {
+            Snackbar.make(nestedScrollView, getString(R.string.error_valid_username_password), Snackbar.LENGTH_LONG).show();
+        }
+        }
+
+
 
     private void emptyInputEditText(){
         textInputEditTextUsername.setText(null);
