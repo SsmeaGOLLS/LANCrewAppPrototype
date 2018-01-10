@@ -32,4 +32,8 @@ public interface userDAO
 
     @Query("DELETE FROM User")
     public void deleteTable();
+
+    @Query("SELECT * FROM USER WHERE username LIKE :uname")
+    public User findUserFromName(String uname);
+
 }

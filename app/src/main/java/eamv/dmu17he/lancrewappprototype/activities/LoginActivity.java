@@ -8,10 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
+import android.util.Log;
 import android.view.View;
+
+import java.util.List;
 
 import eamv.dmu17he.lancrewappprototype.R;
 import eamv.dmu17he.lancrewappprototype.helper.InputValidation;
+import eamv.dmu17he.lancrewappprototype.model.User;
+import eamv.dmu17he.lancrewappprototype.sql.userDatabase;
 //import eamv.dmu17he.lancrewappprototype.sql.DBHelper;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -80,8 +85,30 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private void verifyFromDAO(){
+    private void verifyFromDAO() {
+       /*
+        String userName = textInputEditTextUsername.getText().toString();
+        String password = textInputEditTextPassword.getText().toString();
 
+        Log.d("FIND MIG", textInputEditTextUsername.getText().toString());
+        Log.d("OGSÅ MIG", textInputEditTextPassword.getText().toString());
+
+        User user = new User();
+        user.setUsername(userName);
+        user.setPassword(password);
+
+
+        userDatabase db = userDatabase.getDatabase(this);
+        db.uDAO().insertUser(user);
+
+
+        List<User> users = db.uDAO().getAll();
+        for (User uDBE : users) {
+            String log = "id: " + uDBE.getId() + ", User Name: " + uDBE.getUsername() + ", Password: " + uDBE.getPassword();
+            Log.d("User: :", log);
+
+        }
+        */
     }
 
     private void emptyInputEditText(){

@@ -9,11 +9,13 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import eamv.dmu17he.lancrewappprototype.model.User;
+import eamv.dmu17he.lancrewappprototype.sql.userDatabase;
 
 
 public class InputValidation {
     private Context context;
     private User user;
+
 
     public InputValidation(Context context){
         this.context = context;
@@ -32,9 +34,26 @@ public class InputValidation {
         return true;
     }
 
-    public boolean isInputEditTextUsername(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message){
+    public boolean isInputEditTextUsername(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message, Context context){
         String value = textInputEditText.getText().toString().trim();
-        if (value.isEmpty() || !(user.getUsername()==value))
+        userDatabase db = userDatabase.getDatabase(context);
+
+        User theUser = db.uDAO().findUserFromName(textInputEditText.getText().toString());
+
+        if(theUser==null || value.isEmpty())
+        {
+            //no user by that name
+            textInputLayout.setErrorEnabled(false);
+        }
+        else
+        {
+            //user exists
+            textInputLayout.setError(message);
+            hideKeyboardFrom(textInputEditText);
+            return false;
+        }
+/*
+        if (value.isEmpty() || !(theUser.getUsername()==value))
         {
             textInputLayout.setError(message);
             hideKeyboardFrom(textInputEditText);
@@ -43,6 +62,7 @@ public class InputValidation {
         else{
             textInputLayout.setErrorEnabled(false);
         }
+*/
         return true;
     }
 

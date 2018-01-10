@@ -58,11 +58,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private void initViews() {
         nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
 
+        textInputLayoutName = (TextInputLayout) findViewById(R.id.textInputLayoutName);
         textInputLayoutUsername = (TextInputLayout) findViewById(R.id.textInputLayoutUsername);
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
+        textInputLayoutConfirmPassword = (TextInputLayout) findViewById(R.id.textInputConfirmPassword);
 
+
+        textInputEditTextName = (TextInputEditText) findViewById(R.id.textInputEditTextName);
         textInputEditTextUsername = (TextInputEditText) findViewById(R.id.textInputEditTextUsername);
         textInputEditTextPassword = (TextInputEditText) findViewById(R.id.textInputEditTextPassword);
+        textInputEditTextConfirmPassword = (TextInputEditText) findViewById(R.id.textInputEditTextConfirmPassword);
 
         appCompatButtonRegister = (AppCompatButton) findViewById(R.id.appCompatButtonRegister);
 
@@ -76,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void initObjects(){
         inputValidation = new InputValidation(activity);
-            //DAO SHIT HER
+
     }
 
     @Override
@@ -93,14 +98,31 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void postDataToDAO(){
 
-        String userName = textInputEditTextUsername.getText().toString();
+        if (!inputValidation.isInputEditTextFilled(textInputEditTextName, textInputLayoutName, getString(R.string.error_message_name))) {
+            return;
+        }
+        if (!inputValidation.isInputEditTextFilled(textInputEditTextUsername, textInputLayoutUsername, getString(R.string.error_message_username))) {
+            return;
+        }
+        if (!inputValidation.isInputEditTextUsername(textInputEditTextUsername, textInputLayoutUsername, getString(R.string.error_message_username), this)) {
+            return;
+        }
+        if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_password))) {
+            return;
+        }
+        if (!inputValidation.isInputEditTextMatches(textInputEditTextPassword, textInputEditTextConfirmPassword,
+                textInputLayoutConfirmPassword, getString(R.string.error_password_match))) {
+            return;
+        }
+
+        String username = textInputEditTextUsername.getText().toString();
         String password = textInputEditTextPassword.getText().toString();
 
         Log.d("FIND MIG", textInputEditTextUsername.getText().toString());
         Log.d("OGSÅ MIG", textInputEditTextPassword.getText().toString());
 
         User user = new User();
-        user.setUsername(userName);
+        user.setUsername(username);
         user.setPassword(password);
 
 
