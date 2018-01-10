@@ -92,15 +92,31 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void postDataToDAO(){
-        User abruger = new User();
+
+        String userName = textInputEditTextUsername.getText().toString();
+        String password = textInputEditTextPassword.getText().toString();
+
+        Log.d("FIND MIG", textInputEditTextUsername.getText().toString());
+        Log.d("OGSÅ MIG", textInputEditTextPassword.getText().toString());
+
+        User user = new User();
+        user.setUsername(userName);
+        user.setPassword(password);
+
+
         userDatabase db = userDatabase.getDatabase(this);
-        db.uDAO().insertUser(abruger);
+        db.uDAO().insertUser(user);
+
+
         List<User> users = db.uDAO().getAll();
         for (User uDBE : users){
             String log = "id: " + uDBE.getId() + ", User Name: " + uDBE.getUsername() + ", Password: " + uDBE.getPassword();
             Log.d("User: :", log);
+
         }
-    }
+
+        }
+
 
     private void emptyInputEditText(){
         textInputEditTextName.setText(null);

@@ -7,7 +7,7 @@
     <string name="text_login">Login</string>
     <string name="text_register">Register</string>
     <string name="error_message_name">Enter full name</string>
-    <string name="error_message_nickname">Enter valid Username</string>
+    <string name="error_message_username">Enter valid Username</string>
     <string name="error_message_password">Enter password</string>
     <string name="success_message">Registration Successful</string>
     <string name="text_not_member">No account yet? Create one</string>
