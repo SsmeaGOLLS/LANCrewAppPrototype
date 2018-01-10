@@ -95,7 +95,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         //kald @insert metode til at oprette bruger
         User abruger = new User();
         userDatabase db = userDatabase.getDatabase(this);
+
         db.uDAO().insertUser(abruger);
+
         List<User> users = db.uDAO().getAll();
         for (User uDBE : users){
             String log = "id: " + uDBE.getId() + ", User Name: " + uDBE.getUsername() + ", Password: " + uDBE.getPassword();
