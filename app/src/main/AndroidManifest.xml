@@ -23,5 +23,5 @@
         <activity android:name=".activities.UsersActivity"
             android:screenOrientation="portrait" />
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
