@@ -1,4 +1,4 @@
-package eamv.dmu17he.lancrewappprototype;
+package eamv.dmu17he.LANCrewApp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

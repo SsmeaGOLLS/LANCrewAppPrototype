@@ -1,9 +1,9 @@
-package eamv.dmu17he.lancrewappprototype.activities;
+package eamv.dmu17he.LANCrewApp.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-import eamv.dmu17he.lancrewappprototype.R;
+import eamv.dmu17he.LANCrewApp.R;
 
 public class UsersActivity extends AppCompatActivity {
 

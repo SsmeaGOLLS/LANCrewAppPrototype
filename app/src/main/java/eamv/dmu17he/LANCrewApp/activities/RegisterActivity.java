@@ -1,4 +1,4 @@
-package eamv.dmu17he.lancrewappprototype.activities;
+package eamv.dmu17he.LANCrewApp.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -13,10 +13,10 @@ import android.view.View;
 
 import java.util.List;
 
-import eamv.dmu17he.lancrewappprototype.R;
-import eamv.dmu17he.lancrewappprototype.helper.InputValidation;
-import eamv.dmu17he.lancrewappprototype.model.User;
-import eamv.dmu17he.lancrewappprototype.sql.sqLiteDatabase;
+import eamv.dmu17he.LANCrewApp.R;
+import eamv.dmu17he.LANCrewApp.helper.InputValidation;
+import eamv.dmu17he.LANCrewApp.model.User;
+import eamv.dmu17he.LANCrewApp.sql.sqLiteDatabase;
 
 /**
  * Created by Bruger on 08/01/2018.

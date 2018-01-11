@@ -1,4 +1,4 @@
-package eamv.dmu17he.lancrewappprototype.helper;
+package eamv.dmu17he.LANCrewApp.helper;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
-import eamv.dmu17he.lancrewappprototype.model.User;
-import eamv.dmu17he.lancrewappprototype.sql.sqLiteDatabase;
+import eamv.dmu17he.LANCrewApp.model.User;
+import eamv.dmu17he.LANCrewApp.sql.sqLiteDatabase;
 
 
 public class InputValidation {
