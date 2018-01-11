@@ -10,19 +10,19 @@ import eamv.dmu17he.lancrewappprototype.model.User;
 
 
 @Database(entities = {User.class}, version = 1)
-public abstract class userDatabase extends RoomDatabase
+public abstract class sqLiteDatabase extends RoomDatabase
 {
     //singleton
-    private static userDatabase dbInstance;
+    private static sqLiteDatabase dbInstance;
     //the Data access objects
     public abstract userDAO uDAO();
 
-    public static userDatabase getDatabase(Context context)
+    public static sqLiteDatabase getDatabase(Context context)
     {
         if(dbInstance==null)
         {
             //allow mainThreadQueries should be removed later (a specified thread should be used instead of main on android devices)
-            dbInstance = Room.databaseBuilder(context, userDatabase.class, "userDatabase").allowMainThreadQueries().build();
+            dbInstance = Room.databaseBuilder(context, sqLiteDatabase.class, "userDatabase").allowMainThreadQueries().build();
         }
         return dbInstance;
     }

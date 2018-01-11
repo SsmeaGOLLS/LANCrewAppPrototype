@@ -15,7 +15,7 @@ import android.view.View;
 import eamv.dmu17he.lancrewappprototype.R;
 import eamv.dmu17he.lancrewappprototype.helper.InputValidation;
 import eamv.dmu17he.lancrewappprototype.model.User;
-import eamv.dmu17he.lancrewappprototype.sql.userDatabase;
+import eamv.dmu17he.lancrewappprototype.sql.sqLiteDatabase;
 //import eamv.dmu17he.lancrewappprototype.sql.DBHelper;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_username))) {
             return;
         }
-        userDatabase db = userDatabase.getDatabase(this);
+        sqLiteDatabase db = sqLiteDatabase.getDatabase(this);
         String username = textInputEditTextUsername.getText().toString();
         String password = textInputEditTextPassword.getText().toString();
         String validUser = db.uDAO().findUserFromName(textInputEditTextUsername.getText().toString()).getUsername();

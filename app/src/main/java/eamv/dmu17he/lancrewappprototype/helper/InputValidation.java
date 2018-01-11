@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import eamv.dmu17he.lancrewappprototype.model.User;
-import eamv.dmu17he.lancrewappprototype.sql.userDatabase;
+import eamv.dmu17he.lancrewappprototype.sql.sqLiteDatabase;
 
 
 public class InputValidation {
@@ -37,7 +37,7 @@ public class InputValidation {
 
     public boolean isInputEditTextUsername(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message, Context context){
         String value = textInputEditText.getText().toString().trim();
-        userDatabase db = userDatabase.getDatabase(context);
+        sqLiteDatabase db = sqLiteDatabase.getDatabase(context);
 
         User theUser = db.uDAO().findUserFromName(textInputEditText.getText().toString());
 
@@ -69,7 +69,7 @@ public class InputValidation {
 
     public boolean isInputEditTextValidUsername(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message, Context context) {
         String value = textInputEditText.getText().toString();
-        userDatabase db = userDatabase.getDatabase(context);
+        sqLiteDatabase db = sqLiteDatabase.getDatabase(context);
 
         User theUser = db.uDAO().findUserFromName(textInputEditText.getText().toString());
 

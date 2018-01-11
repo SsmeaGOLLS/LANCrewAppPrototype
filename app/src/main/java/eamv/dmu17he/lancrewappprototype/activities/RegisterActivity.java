@@ -16,7 +16,7 @@ import java.util.List;
 import eamv.dmu17he.lancrewappprototype.R;
 import eamv.dmu17he.lancrewappprototype.helper.InputValidation;
 import eamv.dmu17he.lancrewappprototype.model.User;
-import eamv.dmu17he.lancrewappprototype.sql.userDatabase;
+import eamv.dmu17he.lancrewappprototype.sql.sqLiteDatabase;
 
 /**
  * Created by Bruger on 08/01/2018.
@@ -127,7 +127,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         user.setPassword(password);
 
 
-        userDatabase db = userDatabase.getDatabase(this);
+        sqLiteDatabase db = sqLiteDatabase.getDatabase(this);
         db.uDAO().insertUser(user);
 
 
