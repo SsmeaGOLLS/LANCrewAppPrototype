@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -63,6 +64,30 @@ public class InputValidation {
             textInputLayout.setErrorEnabled(false);
         }
 */
+        return true;
+    }
+
+    public boolean isInputEditTextValidUsername(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message, Context context) {
+        String value = textInputEditText.getText().toString();
+        userDatabase db = userDatabase.getDatabase(context);
+
+        User theUser = db.uDAO().findUserFromName(textInputEditText.getText().toString());
+
+//        Log.d("theUser.getUsername", theUser.getUsername());
+//        Log.d("value", value);
+        if (!(theUser==null) && theUser.getUsername().equals(value )) {
+            //user exists
+            textInputLayout.setErrorEnabled(false);
+            Log.d("Fandt user", "Jeg er inde boss");
+        }
+
+        else {
+            //no user by that username
+            Log.d("jeg fejler", "Hjælp");
+            textInputLayout.setError(message);
+            hideKeyboardFrom(textInputEditText);
+            return false;
+        }
         return true;
     }
 

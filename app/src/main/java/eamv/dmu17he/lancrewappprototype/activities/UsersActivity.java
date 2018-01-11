@@ -7,12 +7,15 @@ import eamv.dmu17he.lancrewappprototype.R;
 
 public class UsersActivity extends AppCompatActivity {
 
-    private TextView textView;
+    private TextView textViewName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
 
+        textViewName = (TextView) findViewById(R.id.text1);
+        String nameFromIntent = getIntent().getStringExtra("USERNAME");
+        textViewName.setText("Welcome " + nameFromIntent);
     }
 }
