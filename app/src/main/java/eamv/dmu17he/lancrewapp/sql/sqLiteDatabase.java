@@ -1,11 +1,11 @@
-package eamv.dmu17he.LANCrewApp.sql;
+package eamv.dmu17he.lancrewapp.sql;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import eamv.dmu17he.LANCrewApp.model.User;
+import eamv.dmu17he.lancrewapp.model.User;
 
 
 

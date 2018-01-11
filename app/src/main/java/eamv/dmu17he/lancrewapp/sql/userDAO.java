@@ -1,4 +1,4 @@
-package eamv.dmu17he.LANCrewApp.sql;
+package eamv.dmu17he.lancrewapp.sql;
 
 
 import android.arch.persistence.room.Dao;
@@ -9,7 +9,7 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
-import eamv.dmu17he.LANCrewApp.model.User;
+import eamv.dmu17he.lancrewapp.model.User;
 
 
 @Dao
