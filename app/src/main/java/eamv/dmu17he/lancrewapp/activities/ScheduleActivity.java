@@ -48,6 +48,7 @@ public class ScheduleActivity extends AppCompatActivity {
         initMobileService();
 
         createTable();
+        refreshItemsFromTable();
     }
 
     private void createTable() {
@@ -73,7 +74,7 @@ public class ScheduleActivity extends AppCompatActivity {
         schedule.setDate("2018-01-12");
         schedule.setStartTime("09:00:00");
         schedule.setEndTime("13:00:00");
-        schedule.setName("Daniel C Sucker");
+        schedule.setName("Daniel Jensen");
         schedule.setTitle("Opvasker i køkken");
 
         final Schedule schedule1 = new Schedule();
@@ -95,7 +96,7 @@ public class ScheduleActivity extends AppCompatActivity {
         schedule2.setTitle("rgrgrgrgrg");
 
         final Schedule schedule3 = new Schedule();
-        schedule3.setId("4");
+        schedule3.setId("7");
         schedule3.setGaName("Glenn Mortensen");
         schedule3.setDate("2018-01-12");
         schedule3.setStartTime("10:00:00");

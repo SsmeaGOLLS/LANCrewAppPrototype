@@ -8,8 +8,13 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class User {
 
+    @com.google.gson.annotations.SerializedName("id")
+    private String mId;
+    public String getId() { return mId; }
+    public final void setId(String id) { mId = id; }
+
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private int idS;
 
     @ColumnInfo(name = "fullName")
     private String name;
@@ -35,13 +40,11 @@ public class User {
     //@ColumnInfo(name = "Crew")
     //private String crew;
 
-    public int getId(){
-        return id;
+    public int getIdS(){
+        return idS;
     }
 
-    public void setId(int id){
-        this.id = id;
-    }
+    public void setIdS(int id){this.idS = id;}
 
     public String getName(){
         return name;
@@ -93,6 +96,9 @@ public class User {
 
     //public void setCrew(String crew) {this.crew = crew;}
 
+    public String toString() {
+        return "Name : " + name + "\nNumber: " + phoneNumber;
+    }
 
     public User(){}
 
