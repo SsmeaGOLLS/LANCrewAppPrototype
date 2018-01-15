@@ -33,7 +33,7 @@ import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperati
 public class UserAzureDatabase
 {
     private static MobileServiceClient mClient;
-    private static MobileServiceTable<userAzureDBEntity> mToDoTable;
+    public static MobileServiceTable<userAzureDBEntity> mToDoTable;
 
     private static UserAzureDatabase Instance;
 

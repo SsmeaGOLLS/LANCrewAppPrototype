@@ -1,6 +1,7 @@
 package eamv.dmu17he.lancrewappprototype;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.val;
+
 public class MainActivity extends AppCompatActivity {
+
+    private UserAzureDatabase theDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.printf("derk");
         //Log.v("", "started");
 
-        UserAzureDatabase db=UserAzureDatabase.getDatabase(this);
+        theDB=UserAzureDatabase.getDatabase(this);
         userAzureDBEntity newUser=new userAzureDBEntity();
        /* newUser.uName="theTester";
         newUser.uPassword="1234";
@@ -63,21 +68,33 @@ public class MainActivity extends AppCompatActivity {
         newUser.userPassword="Restless123";
         uDB.uDAO().insertUser(newUser);*/
         //check if remember me and prior user info exists, if so, autocomplete loginscreen
-        if(globalSingleton.getGlobals().rememberUserLogin==true)
+        globalSingleton.getGlobals(this).loadGlobalInfoFromFile(this);
+        if(globalSingleton.getGlobals(this).rememberUserLogin==true)
         {
             EditText userName =(EditText)findViewById(R.id.userNameInput);
             EditText password =(EditText)findViewById(R.id.passwordInput);
             CheckBox rememberCheckBox=(CheckBox)findViewById(R.id.RememberCheckbox);
 
-            userName.setText(globalSingleton.getGlobals().theCurrentUser.userName);
-            password.setText(globalSingleton.getGlobals().theCurrentUser.userPassword);
+            userName.setText(globalSingleton.getGlobals(this).rememberedUserName);
+            password.setText(globalSingleton.getGlobals(this).rememberedPassword);
             rememberCheckBox.setChecked(true);
         }
     }
 
     public void loginPressed(View view)
     {
+        //create check user task
+
         EditText userName =(EditText)findViewById(R.id.userNameInput);
+        EditText password =(EditText)findViewById(R.id.passwordInput);
+
+        new checkUser().execute(new String[]{userName.getText().toString(),password.getText().toString()});
+
+
+
+
+
+        /*EditText userName =(EditText)findViewById(R.id.userNameInput);
         EditText password =(EditText)findViewById(R.id.passwordInput);
 
         userDatabase uDB=userDatabase.getDatabase(this);
@@ -133,20 +150,103 @@ public class MainActivity extends AppCompatActivity {
                 toast.show();
                 return;
             }
+        }*/
+    }
+
+    private class checkUser extends AsyncTask<String, Void, userAzureDBEntity>
+    {
+        @Override
+        protected userAzureDBEntity doInBackground(String... params)
+        {
+            try
+            {
+                Log.wtf("nu", "params"+params[0]+" "+params[1]);
+
+                List<userAzureDBEntity> temp=theDB.mToDoTable.where().field("userName").
+                    eq(params[0]).execute().get();
+
+                if(temp.size()!=0)
+                {
+                    //check password
+
+                    if(temp.get(0).uPassword.equals(params[1]))
+                    {
+                        return temp.get(0);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            catch (InterruptedException e)
+            {
+
+            }
+            catch (ExecutionException e)
+            {
+
+            }
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(userAzureDBEntity foundUser)
+        {
+            if(foundUser!=null)
+            {
+                loggedIn(foundUser);
+            }
+            else
+            {
+                failedLogin();
+            }
         }
     }
 
-    public void loggedIn(userDBEntity theUser)
+    public void loggedIn(userAzureDBEntity theUser)
     {
+
+
         //set global with the current user
-        globalSingleton.getGlobals().theCurrentUser=theUser;
+        globalSingleton.getGlobals(this).theCurrentUser=theUser;
         //if remember me is checked, make sure theuser is saved in globals
-        globalSingleton.getGlobals().rememberUserLogin=true;
-        globalSingleton.saveGlobalInfo();
+        CheckBox rememberCheckBox=(CheckBox)findViewById(R.id.RememberCheckbox);
+        if(rememberCheckBox.isChecked())
+        {
+            EditText userName =(EditText)findViewById(R.id.userNameInput);
+            EditText password =(EditText)findViewById(R.id.passwordInput);
+
+            globalSingleton.getGlobals(this).rememberUserLogin=true;
+            globalSingleton.getGlobals(this).rememberedUserName=userName.getText().toString();
+            globalSingleton.getGlobals(this).rememberedPassword=password.getText().toString();
+            globalSingleton.getGlobals(this).saveGlobalInfo(this);
+        }
+        else
+        {
+            globalSingleton.getGlobals(this).rememberUserLogin=false;
+            globalSingleton.getGlobals(this).rememberedUserName="";
+            globalSingleton.getGlobals(this).rememberedPassword="";
+            globalSingleton.getGlobals(this).saveGlobalInfo(this);
+        }
+
 
         //create intent
         Intent intent=new Intent(this, MenuScreenActivity.class);
         startActivity(intent);
         //go to menuScreen
     }
+
+    public void failedLogin()
+    {
+        Toast toast = Toast.makeText(this, "Failed Login, check username and password", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
 }

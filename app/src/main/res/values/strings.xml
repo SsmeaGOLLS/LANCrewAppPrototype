@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LANCrewAppPrototype</string>
+    <string name="PREFERENCE_FILE_KEY">LANCrewAppPrototype_Preference_File_Key</string>
 </resources>
