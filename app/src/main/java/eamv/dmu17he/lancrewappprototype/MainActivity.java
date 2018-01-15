@@ -9,6 +9,12 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.microsoft.windowsazure.mobileservices.MobileServiceList;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,7 +22,40 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.v("", "started");
+        System.out.printf("derk");
+        //Log.v("", "started");
+
+        UserAzureDatabase db=UserAzureDatabase.getDatabase(this);
+        userAzureDBEntity newUser=new userAzureDBEntity();
+       /* newUser.uName="theTester";
+        newUser.uPassword="1234";
+        //newUser.mComplete=true;
+
+        db.addUser(newUser);*/
+
+        /*try
+        {
+            db.addUser(newUser);
+        } catch (ExecutionException e)
+        {
+            e.printStackTrace();
+        } catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }*/
+
+       /* List<userAzureDBEntity> testList = new ArrayList<userAzureDBEntity>();
+
+
+
+            db.refreshItemsFromTable(testList);
+
+
+       for(userAzureDBEntity aUser : testList)
+        {
+            Log.wtf("nu", "user: "+aUser.uName);
+        }*/
+
 
         /*userDatabase uDB=userDatabase.getDatabase(this);
         userDBEntity newUser=new userDBEntity();
