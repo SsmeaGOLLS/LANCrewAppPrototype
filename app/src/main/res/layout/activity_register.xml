@@ -6,7 +6,7 @@
     android:id="@+id/nestedScrollView"
     android:background="@color/colorBackground"
     android:padding="20dp"
-    tools:context="eamv.dmu17he.lancrewappprototype.activities.LoginActivity">
+    tools:context="eamv.dmu17he.lancrewapp.activities.LoginActivity">
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -58,10 +58,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_password"
-                android:textColorHint="@color/colorText"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:maxLines="1"
-                android:textColor="@color/colorText" />
+                android:textColor="@color/colorText"
+                android:textColorHint="@color/colorText" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -75,10 +75,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_confirm_password"
-                android:textColorHint="@color/colorText"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:maxLines="1"
-                android:textColor="@color/colorText" />
+                android:textColor="@color/colorText"
+                android:textColorHint="@color/colorText" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton

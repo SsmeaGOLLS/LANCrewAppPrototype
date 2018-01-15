@@ -6,7 +6,7 @@
     android:background="@color/colorBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eamv.dmu17he.lancrewappprototype.activities.LoginActivity">
+    tools:context="eamv.dmu17he.lancrewapp.activities.LoginActivity">
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_password"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:maxLines="1"
                 android:textColor="@color/colorText"
                 android:textColorHint="@color/colorText" />
@@ -69,4 +69,5 @@
 
 
     </android.support.v7.widget.LinearLayoutCompat>
+
 </android.support.v4.widget.NestedScrollView>

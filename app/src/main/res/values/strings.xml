@@ -6,13 +6,20 @@
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="text_login">Login</string>
     <string name="text_register">Register</string>
-    <string name="error_message_name">Enter full name</string>
-    <string name="error_message_nickname">Enter valid Username</string>
-    <string name="error_message_password">Enter password</string>
+    <string name="error_message_name">Enter Full Name</string>
+    <string name="error_message_username">Enter Valid Username</string>
+    <string name="error_message_password">Enter Password</string>
     <string name="success_message">Registration Successful</string>
     <string name="text_not_member">No account yet? Create one</string>
-    <string name="text_already_member">Username already exists</string>
-    <string name="error_password_match">Password does not match</string>
-    <string name="error_valid_nickname_password">Wrong Username or Password</string>
+    <string name="text_already_member">Already a member? Login</string>
+    <string name="error_username_exists">Username Already Exists</string>
+    <string name="error_password_match">Password Does Not Matches</string>
+    <string name="error_valid_username_password">Wrong Username or Password</string>
     <string name="text_member">Already a member? Login</string>
+    <string name="Kontakt">Kontakt</string>
+    <string name="Vækning">Vækning</string>
+    <string name="Beskeder">Beskeder</string>
+    <string name="Vagtplan">Vagtplan</string>
+    <string name="refresh">Refresh</string>
+    <string name="schedule">Schedule</string>
 </resources>
