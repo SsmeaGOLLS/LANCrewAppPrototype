@@ -34,6 +34,7 @@ public class UserAzureDatabase
 {
     private static MobileServiceClient mClient;
     public static MobileServiceTable<userAzureDBEntity> mToDoTable;
+    public static MobileServiceTable<messageAzureDBEntity> messageTable;
 
     private static UserAzureDatabase Instance;
 
@@ -65,6 +66,7 @@ public class UserAzureDatabase
             initLocalStore().get();
             // create the sync table
             mToDoTable = mClient.getTable("userAzureDBEntity", userAzureDBEntity.class);
+            messageTable = mClient.getTable("messageAzureDBEntity", messageAzureDBEntity.class);
 
             if(mToDoTable==null)
             {

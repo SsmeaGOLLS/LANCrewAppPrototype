@@ -80,8 +80,6 @@ public class globalSingleton
 
     private globalSingleton (Context context)
     {
-
-
         loadGlobalInfoFromFile(context);
     }
 }
