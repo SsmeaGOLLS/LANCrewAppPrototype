@@ -33,8 +33,8 @@ public class Schedule {
     @ColumnInfo (name = "title")
     private String title;
 
-    @ColumnInfo (name = "name")
-    private String name;
+    @ColumnInfo (name = "nickName")
+    private String nickName;
 
     @ColumnInfo (name = "gaName")
     private String gaName;
@@ -75,16 +75,16 @@ public class Schedule {
 
     public void setTitle(String title){this.title = title;}
 
-    public String getName() { return name;}
+    public String getNickName() { return nickName;}
 
-    public void setName (String name) { this.name = name; }
+    public void setNickName (String nickName) { this.nickName = nickName; }
 
     public String getGaName() { return gaName;}
 
     public void setGaName (String gaName) { this.gaName = gaName; }
 
     public String getInfo(){
-        return date + "\n" + startTime + "\n" + endTime + "\n" + name + "\n GA: " + gaName + "\n";
+        return date + "\n" + startTime + "\n" + endTime + "\n" + nickName + "\n GA: " + gaName + "\n";
     }
 
     @Override

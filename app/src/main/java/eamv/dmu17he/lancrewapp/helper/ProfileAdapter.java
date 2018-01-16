@@ -42,18 +42,20 @@ public class ProfileAdapter extends ArrayAdapter<User> {
        row.setTag(currentItem);
         final TextView name = (TextView) row.findViewById(R.id.nameTextView);
         name.setText(currentItem.getName());
-        name.setTextSize(14f);
-        name.setTextColor(Color.BLACK);
+        name.setTextSize(30f);
         final TextView number = (TextView) row.findViewById(R.id.numberTextView);
-        number.setText(currentItem.getPhoneNumber());
-        number.setTextColor(Color.BLACK);
-        number.setTextSize(14f);
+        number.setText(""+currentItem.getPhoneNumber());
+        number.setTextSize(30f);
         final TextView nick = (TextView) row.findViewById(R.id.nickTextView);
         nick.setText(currentItem.getNickName());
-        nick.setTextColor(Color.BLACK);
-        nick.setTextSize(14f);
+        nick.setTextSize(30f);
+        final TextView crew = (TextView) row.findViewById(R.id.crewTextView);
+        crew.setText(currentItem.getCrew());
+        crew.setTextSize(30f);
 
 
         return row;
     }
 }
+
+//Color.rgb(255, 20, 147) - Du er pink

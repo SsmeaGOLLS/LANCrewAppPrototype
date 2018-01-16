@@ -69,12 +69,12 @@ public class ScheduleActivity extends AppCompatActivity {
 
         // Create a new item
         final Schedule schedule = new Schedule();
-        schedule.setId("5");
+        schedule.setId("6");
         schedule.setGaName("123Glenn Mortensen");
         schedule.setDate("2018-01-12");
         schedule.setStartTime("09:00:00");
         schedule.setEndTime("13:00:00");
-        schedule.setName("Daniel Jensen");
+        schedule.setNickName("Dakkedakfyr");
         schedule.setTitle("Opvasker i køkken");
 
         final Schedule schedule1 = new Schedule();
@@ -83,7 +83,7 @@ public class ScheduleActivity extends AppCompatActivity {
         schedule1.setDate("2018-01-12");
         schedule1.setStartTime("10:00:00");
         schedule1.setEndTime("13:00:00");
-        schedule1.setName("Mikkel VHN");
+        schedule1.setNickName("Mikkel VHN");
         schedule1.setTitle("Suutuuututtu");
 
         final Schedule schedule2 = new Schedule();
@@ -92,7 +92,7 @@ public class ScheduleActivity extends AppCompatActivity {
         schedule2.setDate("2018-01-12");
         schedule2.setStartTime("10:00:00");
         schedule2.setEndTime("13:00:00");
-        schedule2.setName("Mikkel VHN");
+        schedule2.setNickName("Mikkel VHN");
         schedule2.setTitle("rgrgrgrgrg");
 
         final Schedule schedule3 = new Schedule();
@@ -101,7 +101,7 @@ public class ScheduleActivity extends AppCompatActivity {
         schedule3.setDate("2018-01-12");
         schedule3.setStartTime("10:00:00");
         schedule3.setEndTime("13:00:00");
-        schedule3.setName("Mikkel VHN");
+        schedule3.setNickName("Mikkel VHN");
         schedule3.setTitle("DAvdav");
 
         final Activity mActivity = this;
@@ -199,7 +199,7 @@ public class ScheduleActivity extends AppCompatActivity {
                     tableDefinition.put("endTime", ColumnDataType.String);
                     tableDefinition.put("date", ColumnDataType.String);
                     tableDefinition.put("title", ColumnDataType.String);
-                    tableDefinition.put("name", ColumnDataType.String);
+                    tableDefinition.put("nickName", ColumnDataType.String);
                     tableDefinition.put("gaName", ColumnDataType.String);
 
                     localStore.defineTable("Schedule", tableDefinition);

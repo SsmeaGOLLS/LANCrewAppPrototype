@@ -48,6 +48,7 @@ public class ContactsActivity extends AppCompatActivity {
         initMobileService();
 
         createTable();
+        refreshItemsFromTable();
 
     }
 
@@ -72,6 +73,7 @@ public class ContactsActivity extends AppCompatActivity {
         user.setName("Daniel Jensen");
         user.setPhoneNumber(23969586);
         user.setNickName("Dakkedakfyr");
+        user.setCrew("Silvermoon");
 
         final User user1 = new User();
         user1.setName("Sur mand");
@@ -96,7 +98,7 @@ public class ContactsActivity extends AppCompatActivity {
 
                     final User entity1 = addItemInTable(user);
                  //   final User entity2 = addItemInTable(user1);
-                 //   final User entity3 = addItemInTable(user2);
+                    final User entity3 = addItemInTable(user2);
 
 
                     runOnUiThread(new Runnable() {
@@ -105,7 +107,7 @@ public class ContactsActivity extends AppCompatActivity {
                             //mSickAdapter.add(entity);
                             mSickAdapter.add(entity1);
                         //    mSickAdapter.add(entity2);
-                        //    mSickAdapter.add(entity3);
+                            mSickAdapter.add(entity3);
 
 
 
@@ -159,6 +161,7 @@ public class ContactsActivity extends AppCompatActivity {
     }
 
     private List<User> refreshItemsFromMobileServiceTable() throws ExecutionException, InterruptedException, MobileServiceException {
+       // return mTable.where().field("isAdmin").eq(true).and().field("crew").eq(mClient.getCurrentUser().getCrew()).execute().get();
         return mTable.where().field("isAdmin").eq(true).execute().get();
     }
 

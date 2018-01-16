@@ -37,8 +37,8 @@ public class User {
     @ColumnInfo(name = "isAdmin")
     private boolean isAdmin;
 
-    //@ColumnInfo(name = "Crew")
-    //private String crew;
+    @ColumnInfo(name = "Crew")
+    private String crew;
 
     public int getIdS(){
         return idS;
@@ -86,15 +86,15 @@ public class User {
 
     public String getNickName(){ return nickName; }
 
-    public void setNickName (String nickname) {this.nickName = nickName;}
+    public void setNickName (String nickName) {this.nickName = nickName;}
 
     public boolean getIsAdmin() { return isAdmin; }
 
     public void setIsAdmin(boolean isAdmin) {this.isAdmin = isAdmin; }
 
-    //public String getCrew() {return crew;}
+    public String getCrew() {return crew;}
 
-    //public void setCrew(String crew) {this.crew = crew;}
+    public void setCrew(String crew) {this.crew = crew;}
 
     public String toString() {
         return "Name : " + name + "\nNumber: " + phoneNumber;

@@ -21,4 +21,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nick" />
+
+    <TextView
+        android:id="@+id/crewTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crew" />
+
+
 </LinearLayout>

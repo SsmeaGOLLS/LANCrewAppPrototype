@@ -39,39 +39,40 @@ public class ProfileActivity extends AppCompatActivity {
     private Button refresh;
     private MobileServiceClient mClient;
     private MobileServiceTable<User> mTable;
-   // private MobileServiceTable<Schedule> mScheduleTable;
+    private MobileServiceTable<Schedule> mScheduleTable;
     private ProgressBar mProgressBar;
     private ProfileAdapter mProfileAdapter;
-  //  private ScheduleAdapter mScheduleAdapter;
+    private ScheduleAdapter mScheduleAdapter;
     private AzureServiceAdapter mAzureAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact);
+        setContentView(R.layout.activity_profile);
         initButtonAndProgressBar();
         initMobileService();
 
         createTable();
-        refreshItemsFromTable();
+
 
     }
 
 
     private void createTable() {
         try {
-           // initLocalStore().get();
-           // ListView listViewUser = (ListView) findViewById(R.id.profilelistView);
-           // listViewUser.setAdapter(mProfileAdapter);
             initLocalStore().get();
-            ListView listViewUser = (ListView) findViewById(R.id.profilelistView);
-
+            ListView listViewUser = (ListView) findViewById(R.id.profileListView);
+            ListView listViewSchedule = (ListView) findViewById(R.id.profileScheduleListView);
             listViewUser.setAdapter(mProfileAdapter);
+            listViewSchedule.setAdapter(mScheduleAdapter);
             refreshItemsFromTable();
+            refreshItemsFromScheduleTable();
+
         } catch (InterruptedException | ExecutionException | MobileServiceLocalStoreException e) {
             ToDialogError.getInstance().createAndShowDialogFromTask(e, "Error", this);
         }
     }
+
 
     public void addItem(View view) {
         if (mClient == null) {
@@ -169,8 +170,51 @@ public class ProfileActivity extends AppCompatActivity {
         runAsyncTask(task);
     }
 
+    private void refreshItemsFromScheduleTable() {
+        final Activity mActivity = this;
+
+        @SuppressLint("StaticFieldLeak") // <-- Just to suppress warning
+                AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                try {
+                    final List<Schedule> results = refreshScheduleItemsFromMobileServiceTable();
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mScheduleAdapter.clear();
+
+                            for (Schedule item : results) {
+                                mScheduleAdapter.add(item);
+                            }
+                        }
+                    });
+                } catch (final Exception e){
+                    ToDialogError.getInstance().createAndShowDialogFromTask(e, "Error", mActivity);
+                }
+
+                return null;
+            }
+        };
+
+        runAsyncTask(task);
+    }
+
+    public void refreshItems(View view){
+        refreshItemsFromScheduleTable();
+        refreshItemsFromTable();
+    }
+
     private List<User> refreshItemsFromMobileServiceTable() throws ExecutionException, InterruptedException, MobileServiceException {
-        return mTable.where().field("isAdmin").eq(true).execute().get();
+        //return mTable.where().field("userId").eq(mClient.getCurrentUser().getUserId()).execute().get();
+        return mTable.execute().get();
+    }
+
+    private List<Schedule> refreshScheduleItemsFromMobileServiceTable() throws ExecutionException, InterruptedException, MobileServiceException {
+      //  return mScheduleTable.where().field("nickName").eq(mClient.getCurrentUser().getNickName()).execute().get();
+        return mScheduleTable.execute().get();
     }
 
     private AsyncTask<Void, Void, Void> initLocalStore() throws MobileServiceLocalStoreException, ExecutionException, InterruptedException {
@@ -197,8 +241,19 @@ public class ProfileActivity extends AppCompatActivity {
                     tableDefinition.put("nickName", ColumnDataType.String);
                     tableDefinition.put("isAdmin", ColumnDataType.Boolean);
 
+                    Map<String, ColumnDataType> ScheduletableDefinition = new HashMap<String, ColumnDataType>();
+                    tableDefinition.put("id", ColumnDataType.String);
+                    tableDefinition.put("startTime", ColumnDataType.String);
+                    tableDefinition.put("endTime", ColumnDataType.String);
+                    tableDefinition.put("date", ColumnDataType.String);
+                    tableDefinition.put("title", ColumnDataType.String);
+                    tableDefinition.put("nickName", ColumnDataType.String);
+                    tableDefinition.put("gaName", ColumnDataType.String);
 
                     localStore.defineTable("User", tableDefinition);
+
+                    localStore.defineTable("Schedule", ScheduletableDefinition);
+
 
                     SimpleSyncHandler handler = new SimpleSyncHandler();
 
@@ -226,7 +281,7 @@ public class ProfileActivity extends AppCompatActivity {
     private void initButtonAndProgressBar() {
         mProgressBar = (ProgressBar) findViewById(R.id.loadingProgressBar);
         mProgressBar.setVisibility(ProgressBar.GONE);
-        //refresh = (Button) findViewById(R.id.button2);
+        refresh = (Button) findViewById(R.id.refresh);
     }
 
     private void initMobileService() {
@@ -234,6 +289,8 @@ public class ProfileActivity extends AppCompatActivity {
         mAzureAdapter.updateClient(this, this, mProgressBar);
         mClient = mAzureAdapter.getClient();
         mProfileAdapter = new ProfileAdapter(this, R.layout.profile);
+        mScheduleAdapter = new ScheduleAdapter(this, R.layout.schedule);
         mTable = mClient.getTable(User.class);
+        mScheduleTable = mClient.getTable(Schedule.class);
     }
 }
