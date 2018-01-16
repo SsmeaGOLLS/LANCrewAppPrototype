@@ -31,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
                 goToContactsActivity();
             }
         });
+        Button click = (Button) findViewById(R.id.click);
+        click.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                goToProfileActivity();
+            }
+        });
 
     }
 

@@ -36,6 +36,14 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        Button click = (Button) findViewById(R.id.click);
+        click.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                goToProfileActivity();
+            }
+        });
+
         AzureServiceAdapter.Initialize();
         ToDialogError.initToDialogError();
     }

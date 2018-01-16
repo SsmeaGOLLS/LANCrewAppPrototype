@@ -69,7 +69,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
         // Create a new item
         final Schedule schedule = new Schedule();
-        schedule.setId("1");
+        schedule.setId("5");
         schedule.setGaName("123Glenn Mortensen");
         schedule.setDate("2018-01-12");
         schedule.setStartTime("09:00:00");
@@ -113,7 +113,7 @@ public class ScheduleActivity extends AppCompatActivity {
             protected Void doInBackground(Void... params) {
                 try {
 
-                    final Schedule entity = addItemInTable(schedule3);
+                    final Schedule entity = addItemInTable(schedule);
                     /*
                     final Schedule entity1 = addItemInTable(schedule1);
                     final Schedule entity2 = addItemInTable(schedule2);

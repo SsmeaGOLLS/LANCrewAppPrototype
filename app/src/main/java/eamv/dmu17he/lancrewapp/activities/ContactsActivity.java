@@ -19,9 +19,7 @@ import java.util.concurrent.ExecutionException;
 import eamv.dmu17he.lancrewapp.R;
 import eamv.dmu17he.lancrewapp.helper.AzureServiceAdapter;
 import eamv.dmu17he.lancrewapp.helper.ToDialogError;
-import eamv.dmu17he.lancrewapp.helper.UserAdapter;
-import eamv.dmu17he.lancrewapp.model.Schedule;
-import eamv.dmu17he.lancrewapp.helper.ScheduleAdapter;
+import eamv.dmu17he.lancrewapp.helper.SickAdapter;
 import eamv.dmu17he.lancrewapp.model.User;
 
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
@@ -39,7 +37,7 @@ public class ContactsActivity extends AppCompatActivity {
     private MobileServiceClient mClient;
     private MobileServiceTable<User> mTable;
     private ProgressBar mProgressBar;
-    private UserAdapter mUserAdapter;
+    private SickAdapter mSickAdapter;
     private AzureServiceAdapter mAzureAdapter;
 
     @Override
@@ -57,7 +55,7 @@ public class ContactsActivity extends AppCompatActivity {
         try {
             initLocalStore().get();
             ListView listViewUser = (ListView) findViewById(R.id.userListView);
-            listViewUser.setAdapter(mUserAdapter);
+            listViewUser.setAdapter(mSickAdapter);
             refreshItemsFromTable();
         } catch (InterruptedException | ExecutionException | MobileServiceLocalStoreException e) {
             ToDialogError.getInstance().createAndShowDialogFromTask(e, "Error", this);
@@ -73,7 +71,7 @@ public class ContactsActivity extends AppCompatActivity {
         final User user = new User();
         user.setName("Daniel Jensen");
         user.setPhoneNumber(23969586);
-        user.setIsAdmin(true);
+        user.setNickName("Dakkedakfyr");
 
         final User user1 = new User();
         user1.setName("Sur mand");
@@ -97,17 +95,17 @@ public class ContactsActivity extends AppCompatActivity {
                    // final User entity = addItemInTable(user2);
 
                     final User entity1 = addItemInTable(user);
-                    final User entity2 = addItemInTable(user1);
-                    final User entity3 = addItemInTable(user2);
+                 //   final User entity2 = addItemInTable(user1);
+                 //   final User entity3 = addItemInTable(user2);
 
 
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            //mUserAdapter.add(entity);
-                            mUserAdapter.add(entity1);
-                            mUserAdapter.add(entity2);
-                            mUserAdapter.add(entity3);
+                            //mSickAdapter.add(entity);
+                            mSickAdapter.add(entity1);
+                        //    mSickAdapter.add(entity2);
+                        //    mSickAdapter.add(entity3);
 
 
 
@@ -142,10 +140,10 @@ public class ContactsActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mUserAdapter.clear();
+                            mSickAdapter.clear();
 
                             for (User item : results) {
-                                mUserAdapter.add(item);
+                                mSickAdapter.add(item);
                             }
                         }
                     });
@@ -224,7 +222,7 @@ public class ContactsActivity extends AppCompatActivity {
         mAzureAdapter = AzureServiceAdapter.getInstance();
         mAzureAdapter.updateClient(this, this, mProgressBar);
         mClient = mAzureAdapter.getClient();
-        mUserAdapter = new UserAdapter(this, R.layout.user);
+        mSickAdapter = new SickAdapter(this, R.layout.user);
         mTable = mClient.getTable(User.class);
     }
 }
