@@ -43,16 +43,19 @@ public class ProfileAdapter extends ArrayAdapter<User> {
         final TextView name = (TextView) row.findViewById(R.id.nameTextView);
         name.setText(currentItem.getName());
         name.setTextSize(30f);
+        name.setTextColor(Color.rgb(41, 41, 41));
         final TextView number = (TextView) row.findViewById(R.id.numberTextView);
         number.setText(""+currentItem.getPhoneNumber());
         number.setTextSize(30f);
+        number.setTextColor(Color.rgb(41, 41, 41));
         final TextView nick = (TextView) row.findViewById(R.id.nickTextView);
         nick.setText(currentItem.getNickName());
         nick.setTextSize(30f);
+        nick.setTextColor(Color.rgb(41, 41, 41));
         final TextView crew = (TextView) row.findViewById(R.id.crewTextView);
         crew.setText(currentItem.getCrew());
         crew.setTextSize(30f);
-
+        crew.setTextColor(Color.rgb(41, 41, 41));
 
         return row;
     }
