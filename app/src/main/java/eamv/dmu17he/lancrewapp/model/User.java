@@ -97,7 +97,7 @@ public class User {
     public void setCrew(String crew) {this.crew = crew;}
 
     public String toString() {
-        return "Name : " + name + "\nNumber: " + phoneNumber;
+        return "Name : " + name + "\nNumber: " + phoneNumber + "\n";
     }
 
     public User(){}
