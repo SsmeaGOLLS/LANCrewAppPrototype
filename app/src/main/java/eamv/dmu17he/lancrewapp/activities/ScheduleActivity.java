@@ -49,7 +49,7 @@ public class ScheduleActivity extends AppCompatActivity {
         initMobileService();
 
         createTable();
-        refreshItemsFromTable();
+
     }
 
     private void createTable() {
@@ -141,6 +141,9 @@ public class ScheduleActivity extends AppCompatActivity {
     public Schedule addItemInTable(Schedule item) throws ExecutionException, InterruptedException {
         Schedule entity = mTable.insert(item).get();
         return entity;
+    }
+    public void refreshItems(View view){
+        refreshItemsFromTable();
     }
 
     private void refreshItemsFromTable() {
