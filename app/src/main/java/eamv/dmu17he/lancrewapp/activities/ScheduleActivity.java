@@ -50,7 +50,7 @@ public class ScheduleActivity extends AppCompatActivity {
         initMobileService();
 
         createTable();
-
+        
         refreshItemsFromTable();
 
        /* Button createSchedule = (Button) findViewById(R.id.createSchedule);
