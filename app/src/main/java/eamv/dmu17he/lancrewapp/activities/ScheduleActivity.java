@@ -50,16 +50,8 @@ public class ScheduleActivity extends AppCompatActivity {
         initMobileService();
 
         createTable();
-        
+
         refreshItemsFromTable();
-
-       /* Button createSchedule = (Button) findViewById(R.id.createSchedule);
-        if (mClient.getCurrentUser().getIsAdmin()){
-            createSchedule.setVisibility(View.VISIBLE);
-        } else{
-            createSchedule.setVisibility(View.GONE);
-        }*/
-
     }
 
     private void createTable() {
@@ -78,43 +70,6 @@ public class ScheduleActivity extends AppCompatActivity {
             return;
         }
 
-        // Create a new item
-        final Schedule schedule = new Schedule();
-        schedule.setId("6");
-        schedule.setGaName("123Glenn Mortensen");
-        schedule.setDate("2018-01-12");
-        schedule.setStartTime("09:00:00");
-        schedule.setEndTime("13:00:00");
-        schedule.setNickName("Dakkedakfyr");
-        schedule.setTitle("Opvasker i køkken");
-
-        final Schedule schedule1 = new Schedule();
-        schedule1.setId("2");
-        schedule1.setGaName("Glenn Mortensen");
-        schedule1.setDate("2018-01-12");
-        schedule1.setStartTime("10:00:00");
-        schedule1.setEndTime("13:00:00");
-        schedule1.setNickName("Mikkel VHN");
-        schedule1.setTitle("Suutuuututtu");
-
-        final Schedule schedule2 = new Schedule();
-        schedule2.setId("3");
-        schedule2.setGaName("Glenn Mortensen");
-        schedule2.setDate("2018-01-12");
-        schedule2.setStartTime("10:00:00");
-        schedule2.setEndTime("13:00:00");
-        schedule2.setNickName("Mikkel VHN");
-        schedule2.setTitle("rgrgrgrgrg");
-
-        final Schedule schedule3 = new Schedule();
-        schedule3.setId("7");
-        schedule3.setGaName("Glenn Mortensen");
-        schedule3.setDate("2018-01-12");
-        schedule3.setStartTime("10:00:00");
-        schedule3.setEndTime("13:00:00");
-        schedule3.setNickName("Mikkel VHN");
-        schedule3.setTitle("DAvdav");
-
         final Activity mActivity = this;
 
         // Insert the new item
@@ -124,17 +79,9 @@ public class ScheduleActivity extends AppCompatActivity {
             protected Void doInBackground(Void... params) {
                 try {
 
-                    final Schedule entity = addItemInTable(schedule);
-                    /*
-                    final Schedule entity1 = addItemInTable(schedule1);
-                    final Schedule entity2 = addItemInTable(schedule2);
-                    final Schedule entity3 = addItemInTable(schedule3);
-                    */
-
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mScheduleAdapter.add(entity);
 
                         }
                     });

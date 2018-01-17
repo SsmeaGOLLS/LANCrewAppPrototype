@@ -20,30 +20,6 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-       /* Button schedule = (Button) findViewById(R.id.schedule);
-        schedule.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-                goToScheduleActivity();
-            }
-        });
-
-        Button contacts = (Button) findViewById(R.id.contacts);
-        contacts.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-                goToContactsActivity();
-            }
-        });
-
-        Button click = (Button) findViewById(R.id.click);
-        click.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-                goToProfileActivity();
-            }
-        });
-    */
         AzureServiceAdapter.Initialize();
         ToDialogError.initToDialogError();
     }

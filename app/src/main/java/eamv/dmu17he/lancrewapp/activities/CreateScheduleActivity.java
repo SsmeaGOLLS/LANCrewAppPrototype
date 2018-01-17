@@ -90,7 +90,22 @@ public class CreateScheduleActivity extends AppCompatActivity {
 
         runAsyncTask(task);
 
+        editText.setText("");
 
+        editText = (EditText) findViewById(R.id.nickNameET);
+        editText.setText("");
+
+        editText = (EditText) findViewById(R.id.endTimeET);
+        editText.setText("");
+
+        editText = (EditText) findViewById(R.id.startTimeET);
+        editText.setText("");
+
+        editText = (EditText) findViewById(R.id.dateET);
+        editText.setText("");
+
+        editText = (EditText) findViewById(R.id.titleET);
+        editText.setText("");
     }
 
     private Button refresh;

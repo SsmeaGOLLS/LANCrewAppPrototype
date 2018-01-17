@@ -56,7 +56,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/schedule"
+        android:text="@string/profileschedule"
         android:textColor="#000"
         android:textSize="27dp"
         app:layout_constraintBottom_toTopOf="@+id/profileScheduleListView"
@@ -95,5 +95,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:listitem="@layout/profile" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/scheduleTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileListView"
+        app:srcCompat="@android:color/background_dark" />
 
 </android.support.constraint.ConstraintLayout>

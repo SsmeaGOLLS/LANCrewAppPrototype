@@ -84,7 +84,7 @@ public class Schedule {
     public void setGaName (String gaName) { this.gaName = gaName; }
 
     public String getInfo(){
-        return date + "\n" + startTime + "\n" + endTime + "\n Nick: " + nickName + "\n GA: " + gaName + "\n";
+        return "Date: " + date + "\nStart Time: " + startTime + "\nEnd Time: " + endTime + "\nNick: " + nickName + "\nGA: " + gaName + "\n";
     }
 
     @Override

@@ -54,9 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         createTable();
 
-
     }
-
 
     private void createTable() {
         try {
@@ -73,27 +71,10 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
-
     public void addItem(View view) {
         if (mClient == null) {
             return;
         }
-
-        // Create a new item
-        final User user = new User();
-        user.setName("Daniel Jensen");
-        user.setPhoneNumber(23969586);
-
-
-        final User user1 = new User();
-        user1.setName("Sur mand");
-        user1.setPhoneNumber(00000000);
-        user1.setIsAdmin(false);
-
-        final User user2 = new User();
-        user2.setName("Glad Mand");
-        user2.setPhoneNumber(20000029);
-        user2.setIsAdmin(true);
 
         final Activity mActivity = this;
 
@@ -103,24 +84,9 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             protected Void doInBackground(Void... params) {
                 try {
-
-                    // final User entity = addItemInTable(user2);
-
-                    final User entity1 = addItemInTable(user);
-                    //   final User entity2 = addItemInTable(user1);
-                    //   final User entity3 = addItemInTable(user2);
-
-
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            //mSickAdapter.add(entity);
-                            mProfileAdapter.add(entity1);
-                            //    mSickAdapter.add(entity2);
-                            //    mSickAdapter.add(entity3);
-
-
-
                         }
                     });
                 } catch (final Exception e) {
