@@ -20,7 +20,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Button schedule = (Button) findViewById(R.id.schedule);
+       /* Button schedule = (Button) findViewById(R.id.schedule);
         schedule.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
@@ -43,22 +43,22 @@ public class MenuActivity extends AppCompatActivity {
                 goToProfileActivity();
             }
         });
-
+    */
         AzureServiceAdapter.Initialize();
         ToDialogError.initToDialogError();
     }
 
-    private void goToScheduleActivity(){
+    public void goToScheduleActivity(View view){
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
     }
 
-    private void goToContactsActivity(){
+    public void goToContactsActivity(View view){
         Intent intent = new Intent(this, ContactsActivity.class);
         startActivity(intent);
     }
 
-    private void goToProfileActivity(){
+    public void goToProfileActivity(View view){
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }

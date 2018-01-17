@@ -39,7 +39,7 @@ public class ScheduleAdapter extends ArrayAdapter<Schedule> {
         }
 
         row.setTag(currentItem);
-        final TextView title = (TextView) row.findViewById(R.id.titleTextView);
+        final TextView title = (TextView) row.findViewById(R.id.titleTV);
         title.setText(currentItem.getTitle());
         title.setTextSize(20f);
         title.setTextColor(Color.BLACK);

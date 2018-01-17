@@ -8,6 +8,7 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -49,7 +50,16 @@ public class ScheduleActivity extends AppCompatActivity {
         initMobileService();
 
         createTable();
+
         refreshItemsFromTable();
+
+       /* Button createSchedule = (Button) findViewById(R.id.createSchedule);
+        if (mClient.getCurrentUser().getIsAdmin()){
+            createSchedule.setVisibility(View.VISIBLE);
+        } else{
+            createSchedule.setVisibility(View.GONE);
+        }*/
+
     }
 
     private void createTable() {
@@ -141,6 +151,9 @@ public class ScheduleActivity extends AppCompatActivity {
     public Schedule addItemInTable(Schedule item) throws ExecutionException, InterruptedException {
         Schedule entity = mTable.insert(item).get();
         return entity;
+    }
+    public void refreshItems(View view){
+        refreshItemsFromTable();
     }
 
     private void refreshItemsFromTable() {
@@ -245,5 +258,9 @@ public class ScheduleActivity extends AppCompatActivity {
     public void goToCreateSchedule(View view){
         Intent intent = new Intent(this, CreateScheduleActivity.class);
         startActivity(intent);
+    }
+
+    public void refreshButtonPressed(View view){
+        refreshItemsFromTable();
     }
 }

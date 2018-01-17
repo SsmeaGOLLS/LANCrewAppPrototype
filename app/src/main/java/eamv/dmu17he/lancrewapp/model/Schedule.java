@@ -84,7 +84,7 @@ public class Schedule {
     public void setGaName (String gaName) { this.gaName = gaName; }
 
     public String getInfo(){
-        return date + "\n" + startTime + "\n" + endTime + "\n" + nickName + "\n GA: " + gaName + "\n";
+        return date + "\n" + startTime + "\n" + endTime + "\n Nick: " + nickName + "\n GA: " + gaName + "\n";
     }
 
     @Override
@@ -97,4 +97,6 @@ public class Schedule {
         return o instanceof Schedule && ((Schedule) o).mId == mId;
     }
 }
+
+
 
