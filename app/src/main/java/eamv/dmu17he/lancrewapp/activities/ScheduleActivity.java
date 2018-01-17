@@ -2,6 +2,7 @@ package eamv.dmu17he.lancrewapp.activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -239,5 +240,10 @@ public class ScheduleActivity extends AppCompatActivity {
         mClient = mAzureAdapter.getClient();
         mScheduleAdapter = new ScheduleAdapter(this, R.layout.schedule);
         mTable = mClient.getTable(Schedule.class);
+    }
+
+    public void goToCreateSchedule(View view){
+        Intent intent = new Intent(this, CreateScheduleActivity.class);
+        startActivity(intent);
     }
 }
